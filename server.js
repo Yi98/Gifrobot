@@ -10,7 +10,7 @@ app.use(express.static(path.join(__dirname, 'dist/gifbot')));
 app.use('/api', api);
 
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '/dist/gifbot/index.html'));
+  res.sendFile(path.join(__dirname, 'dist/gifbot/index.html'));
 })
 
 app.listen((process.env.PORT || port), () => {
