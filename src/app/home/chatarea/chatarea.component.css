@@ -1,0 +1,10 @@
+.fullscreen {
+  width: 100vw;
+  height: 100vh;
+}
+
+.chatbox {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+}

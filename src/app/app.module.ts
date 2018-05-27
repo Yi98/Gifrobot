@@ -5,9 +5,10 @@ import { Http, HttpModule } from '@angular/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './home/header/header.component';
-import { DisplayComponent } from './home/display/display.component';
+import { DisplayComponent } from './home/chatarea/display/display.component';
 import { HomeComponent } from './home/home.component';
-import { JumbotronComponent } from './home/jumbotron/jumbotron.component';
+import { JumbotronComponent } from './home/header/jumbotron/jumbotron.component';
+import { ChatareaComponent } from './home/chatarea/chatarea.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { JumbotronComponent } from './home/jumbotron/jumbotron.component';
     HeaderComponent,
     DisplayComponent,
     HomeComponent,
-    JumbotronComponent
+    JumbotronComponent,
+    ChatareaComponent
   ],
   imports: [
     BrowserModule,

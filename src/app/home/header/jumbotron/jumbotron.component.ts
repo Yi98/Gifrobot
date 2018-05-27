@@ -11,5 +11,4 @@ export class JumbotronComponent implements OnInit {
 
   ngOnInit() {
   }
-
 }
