@@ -4,14 +4,18 @@ import { Http, HttpModule } from '@angular/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
-import { DisplayComponent } from './display/display.component';
+import { HeaderComponent } from './home/header/header.component';
+import { DisplayComponent } from './home/display/display.component';
+import { HomeComponent } from './home/home.component';
+import { JumbotronComponent } from './home/jumbotron/jumbotron.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    DisplayComponent
+    DisplayComponent,
+    HomeComponent,
+    JumbotronComponent
   ],
   imports: [
     BrowserModule,

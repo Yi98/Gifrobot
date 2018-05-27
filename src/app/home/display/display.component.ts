@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { GifService } from '../gif.service';
+import { GifService } from '../../gif.service';
 
 @Component({
   selector: 'app-display',
@@ -8,13 +8,13 @@ import { GifService } from '../gif.service';
 })
 export class DisplayComponent implements OnInit {
 
-  gif: any;
+  gifs: any;
 
   constructor(private _gifService: GifService) { }
 
   ngOnInit() {
     this._gifService.getGifs()
-      .subscribe(resGifData => this.gif = resGifData.url);
+      .subscribe(resGifData => this.gifs = resGifData.gifs);
   }
 
 }
