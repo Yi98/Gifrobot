@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { GifService } from '../../../gif.service';
+import { GifService } from '../../gif.service';
 
 @Component({
   selector: 'app-display',

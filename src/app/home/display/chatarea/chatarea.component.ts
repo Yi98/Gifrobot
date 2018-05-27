@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ChatareaComponent implements OnInit {
 
+  message: string = "Hello World";
 
   constructor() { }
 
