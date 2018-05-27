@@ -1,8 +1,8 @@
-<div class="jumbotron">
+<div class="jumbotron" *ngIf="appear">
   <h1 class="display-4">GifBot</h1>
   <p class="lead">Chat with our GifBot and receive hilarious GIF replies.</p>
   <hr class="my-4">
     <p class="lead">
-    <a class="btn btn-primary btn-lg" href="#chat-area" role="button">Chat now</a>
+    <a class="btn btn-primary btn-lg" href="#chat-area" role="button" (click)="onStartChat()">Chat now</a>
   </p>
 </div>

@@ -7,8 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class JumbotronComponent implements OnInit {
 
+  appear: boolean = true;
+
   constructor() { }
 
   ngOnInit() {
+
+  }
+
+  onStartChat() {
+    this.appear = false;
   }
 }
