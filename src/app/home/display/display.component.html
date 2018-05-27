@@ -1,7 +1,9 @@
 <div class="container">
-    <div class="row">
-      <div class="col-sm-12" *ngFor="let gif of gifs">
-        <img [src]="gif" alt="gif image">
+    <div class="row" *ngFor="let gif of gifs">
+      <div class="col-sm-2"><fa class="icon" name="angle-left" size="5x"></fa></div>
+      <div class="col-sm-8">
+        <img [src]="gif.url" alt="gif image">
       </div>
+      <div class="col-sm-2"><fa class="icon" name="angle-right" size="5x"></fa></div>
     </div>
   </div>

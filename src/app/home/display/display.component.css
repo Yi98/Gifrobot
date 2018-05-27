@@ -1,4 +1,11 @@
 img {
-  width: 400px;
-  height: 400px;
+  width: 500px;
+  height: 500px;
+  display: block;
+  margin: 5% auto;
+}
+
+.icon {
+  display: block;
+  margin: 10% auto;
 }
