@@ -15,7 +15,21 @@ export class DisplayComponent implements OnInit {
 
   ngOnInit() {
     this._gifService.getGifs()
-      .subscribe(resGifData => this.gifs = resGifData.gifs);
-  }
-
+    .subscribe(resGifData => {
+      for(let i=0; i<resGifData.gifs.length; i++) {
+        var words = resGifData.gifs[i].title.split(' ');
+        var newTitle = [];
+        for(let j=0; j<words.length; j++) {
+          if(words[j] !== 'GIF') {
+            newTitle.push(words[j]);
+          }
+          else {
+            break;
+          }
+        }
+        resGifData.gifs[i].title = newTitle.join(' ').toUpperCase();
+      }
+      this.gifs = resGifData.gifs;
+    });
+  };
 }
