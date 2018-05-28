@@ -15,8 +15,6 @@ app.use('/api', api);
 
 var section = app.get('/:section', (req, res) => {
   res.sendFile(path.join(__dirname, '/dist/gifbot/index.html'));
-  console.log('Section1: ', req.params.section);
-
   // return req.params.section;
 });
 

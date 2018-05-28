@@ -1,6 +1,7 @@
 import { Component, OnInit, OnChanges, DoCheck } from '@angular/core';
 import { GifService } from '../../gif.service';
 import { Gif } from 'server/models/Gif';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-display',
@@ -15,8 +16,9 @@ export class DisplayComponent implements OnInit, DoCheck {
   limit: number;
   start: boolean = false;
   end: boolean = false;
+  url = window.location.href;
 
-  constructor(private _gifService: GifService) { }
+  constructor(private _gifService: GifService, private router: Router) { }
 
   ngOnInit() {
     this._gifService.getTrending()

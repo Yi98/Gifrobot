@@ -7,11 +7,18 @@ import { map } from 'rxjs/operators';
 })
 export class GifService {
 
-  private _getUrl = "/api/trending";
+  private _getTrending = "/api/trending";
+  private _getRandom = "/api/random";
   constructor(private _http: Http) { }
 
   getTrending() {  
-    return this._http.get(this._getUrl).pipe(
+    return this._http.get(this._getTrending).pipe(
+      map((response: Response) => response.json())
+    );
+  }
+
+  getRandom() {
+    return this._http.get(this._getRandom).pipe(
       map((response: Response) => response.json())
     );
   }
