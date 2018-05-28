@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges, DoCheck } from '@angular/core';
 import { GifService } from '../../gif.service';
 import { Gif } from 'server/models/Gif';
 
@@ -7,12 +7,14 @@ import { Gif } from 'server/models/Gif';
   templateUrl: './display.component.html',
   styleUrls: ['./display.component.css']
 })
-export class DisplayComponent implements OnInit {
+export class DisplayComponent implements OnInit, DoCheck {
 
   gifs: Array<Gif>;
   gif: Gif;
   current: number = 0;
   limit: number;
+  start: boolean = false;
+  end: boolean = false;
 
   constructor(private _gifService: GifService) { }
 
@@ -40,6 +42,22 @@ export class DisplayComponent implements OnInit {
       this.limit = resGifData.limit;
     });
   };
+
+  ngDoCheck() {
+    if(this.current === 0) {
+      this.start = true;
+    }
+    else {
+      this.start = false;
+    }
+    
+    if(this.current === this.limit-1) {
+      this.end = true;
+    }
+    else {
+      this.end = false;
+    }
+  }
 
   showPrevious() {
     if(this.current !== 0) {
