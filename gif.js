@@ -11,11 +11,12 @@ var results = (callback) => {
         for(let i=0; i<limit; i++) {
           gifs.push({
             url: body.data[i].images.original.url,
-            title: body.data[i].title
+            title: body.data[i].title,
           });
         }
         callback(undefined, {
-          gifs
+          gifs,
+          limit
         });
       }
       else {

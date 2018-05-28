@@ -10,6 +10,9 @@ import { Gif } from 'server/models/Gif';
 export class DisplayComponent implements OnInit {
 
   gifs: Array<Gif>;
+  gif: Gif;
+  current: number = 0;
+  limit: number;
 
   constructor(private _gifService: GifService) { }
 
@@ -30,6 +33,22 @@ export class DisplayComponent implements OnInit {
         resGifData.gifs[i].title = newTitle.join(' ').toUpperCase();
       }
       this.gifs = resGifData.gifs;
+      this.gif = this.gifs[0];
+      this.limit = resGifData.limit;
     });
   };
+
+  showPrevious() {
+    if(this.current !== 0) {
+      this.current--;
+      this.gif = this.gifs[this.current];
+    }
+  }
+
+  showNext() {
+    if(this.current < this.limit-1) {
+      this.current++;
+      this.gif = this.gifs[this.current];
+    }
+  }
 }
