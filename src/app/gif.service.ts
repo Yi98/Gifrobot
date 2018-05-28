@@ -7,10 +7,10 @@ import { map } from 'rxjs/operators';
 })
 export class GifService {
 
-  private _getUrl = "/api/data";
+  private _getUrl = "/api/trending";
   constructor(private _http: Http) { }
 
-  getGifs() {  
+  getTrending() {  
     return this._http.get(this._getUrl).pipe(
       map((response: Response) => response.json())
     );

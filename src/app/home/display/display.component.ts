@@ -19,7 +19,7 @@ export class DisplayComponent implements OnInit, DoCheck {
   constructor(private _gifService: GifService) { }
 
   ngOnInit() {
-    this._gifService.getGifs()
+    this._gifService.getTrending()
     .subscribe(resGifData => {
       for(let i=0; i<resGifData.gifs.length; i++) {
         if(resGifData.gifs[i].title === '') {

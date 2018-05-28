@@ -8,7 +8,19 @@ gif.results((err, data) => {
   }
   else {
     console.log(data);
-    router.get('/data', (req, res) => {
+    router.get('/trending', (req, res) => {
+      res.send(JSON.stringify(data, undefined, 2));
+    });
+  }
+});
+
+gif.randomData((err, data) => {
+  if(err) {
+    console.log(err);
+  }
+  else {
+    console.log(data);
+    router.get('/random', (req, res) => {
       res.send(JSON.stringify(data, undefined, 2));
     });
   }

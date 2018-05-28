@@ -9,10 +9,19 @@ const app = express();
 app.use(express.static(path.join(__dirname, 'dist/gifbot')));
 app.use('/api', api);
 
-app.get('*', (req, res) => {
+// app.get('*', (req, res) => {
+//   res.sendFile(path.join(__dirname, '/dist/gifbot/index.html'));
+// })
+
+var section = app.get('/:section', (req, res) => {
   res.sendFile(path.join(__dirname, '/dist/gifbot/index.html'));
-})
+  console.log('Section1: ', req.params.section);
+
+  // return req.params.section;
+});
 
 app.listen((process.env.PORT || port), () => {
   console.log('Server running on ' + port);
 });
+
+// module.exports = section;
