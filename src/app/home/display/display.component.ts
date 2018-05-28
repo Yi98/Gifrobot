@@ -20,6 +20,9 @@ export class DisplayComponent implements OnInit {
     this._gifService.getGifs()
     .subscribe(resGifData => {
       for(let i=0; i<resGifData.gifs.length; i++) {
+        if(resGifData.gifs[i].title === '') {
+          resGifData.gifs[i].title = "Title not found";
+        }
         var words = resGifData.gifs[i].title.split(' ');
         var newTitle = [];
         for(let j=0; j<words.length; j++) {
