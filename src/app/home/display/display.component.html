@@ -1,14 +1,14 @@
 <div class="container">
     <div class="row">
       <div class="col-sm-2">
-        <a href="#" (click)="showPrevious()"><fa class="icon" name="angle-left" size="5x"></fa></a>
+        <a (click)="showPrevious()"><fa class="icon" name="angle-left" size="5x"></fa></a>
       </div>
       <div class="col-sm-8">
         <img [src]="gif.url" alt="gif image">
         <p>{{gif.title}}</p>
       </div>
       <div class="col-sm-2">
-        <a href="#" (click)="showNext()"><fa class="icon" name="angle-right" size="5x"></fa></a>
+        <a (click)="showNext()"><fa class="icon" name="angle-right" size="5x"></fa></a>
       </div>
     </div>
   </div>
