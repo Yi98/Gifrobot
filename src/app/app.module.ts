@@ -6,17 +6,19 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './home/header/header.component';
-import { DisplayComponent } from './home/display/display.component';
-import { HomeComponent } from './home/home.component';
+import { HeaderComponent } from './header/header.component';
+import { RandomComponent } from './random/random.component';
+import { StickerComponent } from './sticker/sticker.component';
+import { TrendingComponent } from './trending/trending.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    DisplayComponent,
-    HomeComponent
+    TrendingComponent,
+    RandomComponent,
+    StickerComponent
   ],
   imports: [
     BrowserModule,

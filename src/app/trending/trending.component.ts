@@ -1,14 +1,13 @@
 import { Component, OnInit, OnChanges, DoCheck } from '@angular/core';
-import { GifService } from '../../gif.service';
+import { GifService } from '../gif.service';
 import { Gif } from 'server/models/Gif';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-display',
-  templateUrl: './display.component.html',
-  styleUrls: ['./display.component.css']
+  templateUrl: './trending.component.html',
+  styleUrls: ['./trending.component.css']
 })
-export class DisplayComponent implements OnInit, DoCheck {
+export class TrendingComponent implements OnInit, DoCheck {
 
   gifs: Array<Gif>;
   gif: Gif;
@@ -18,7 +17,7 @@ export class DisplayComponent implements OnInit, DoCheck {
   end: boolean = false;
   url = window.location.href;
 
-  constructor(private _gifService: GifService, private router: Router) { }
+  constructor(private _gifService: GifService) { }
 
   ngOnInit() {
     this._gifService.getTrending()

@@ -1,12 +1,14 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { HomeComponent } from './home/home.component';
+import { RandomComponent } from './random/random.component';
+import { TrendingComponent } from './trending/trending.component';
+import { StickerComponent } from './sticker/sticker.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/trending', pathMatch: 'full'},
-  { path: 'trending', component: HomeComponent },
-  { path: 'random', component: HomeComponent },
-  { path: 'stickers', component: HomeComponent }
+  { path: 'trending', component: TrendingComponent },
+  { path: 'random', component: RandomComponent },
+  { path: 'stickers', component: StickerComponent }
 ];
 
 @NgModule({
