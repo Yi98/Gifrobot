@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { GifService } from '../../gif.service';
+import { Gif } from 'server/models/Gif';
 
 @Component({
   selector: 'app-display',
@@ -8,7 +9,7 @@ import { GifService } from '../../gif.service';
 })
 export class DisplayComponent implements OnInit {
 
-  gifs: any;
+  gifs: Array<Gif>;
 
   constructor(private _gifService: GifService) { }
 
