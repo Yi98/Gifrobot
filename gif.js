@@ -28,21 +28,24 @@ var results = (callback) => {
 };
 
 var randomData = (callback) => {
-  request(random, {json: true}, (err, res, body) => {
-    if(!err) {
-      var gifs = [];
-      gifs.push({
-        url: body.data.images.original.url,
-        title: body.data.title
-      });
-      callback(undefined, {
-        gifs
-      });
-    }
-    else {
-      callback('Unable to receive random!');
-    }
-  });
+  var gifs = [];
+  for(var j=0; j<limit; j++) {
+    request(random, {json: true}, (err, res, body) => {
+      if(!err) {
+        gifs.push({
+          url: body.data.images.original.url,
+          title: body.data.title
+        });
+        callback(undefined, {
+          gifs,
+          limit
+        });
+      }
+      else {
+        callback('Unable to receive random!');
+      }
+    });
+  }
 };
 
 var stickerData = (callback) => {
