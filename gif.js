@@ -5,6 +5,7 @@ var limit = 10;
 var trending = `https://api.giphy.com/v1/gifs/trending?api_key=AH1lxNGJ7pZeEyEJlTQ6EY3RK0EFfPGZ&limit=${limit}&rating=G`;
 var random = 'https://api.giphy.com/v1/gifs/random?api_key=AH1lxNGJ7pZeEyEJlTQ6EY3RK0EFfPGZ&tag=&rating=R';
 var sticker = `https://api.giphy.com/v1/stickers/trending?api_key=AH1lxNGJ7pZeEyEJlTQ6EY3RK0EFfPGZ&limit=${limit}&rating=R`;
+var search = `https://api.giphy.com/v1/gifs/search?api_key=AH1lxNGJ7pZeEyEJlTQ6EY3RK0EFfPGZ&q=bye&${limit}&offset=0&rating=G&lang=en`;
 
 var results = (callback) => {
   request(trending, {json: true}, (err, res, body) => {
@@ -29,7 +30,7 @@ var results = (callback) => {
 
 var randomData = (callback) => {
   var gifs = [];
-  for(var j=0; j<limit; j++) {
+  for(var i=0; i<limit; i++) {
     request(random, {json: true}, (err, res, body) => {
       if(!err) {
         gifs.push({
@@ -69,6 +70,30 @@ var stickerData = (callback) => {
   });
 }
 
-module.exports.results = results;
-module.exports.randomData = randomData;
-module.exports.stickerData = stickerData;
+var searchData = (callback) => {
+  request(search, {json: true}, (err, res, body) => {
+    var gifs = [];
+    if(!err) {
+      for(let i=0; i<limit; i++) {
+        gifs.push({
+          url: body.data[i].images.original.url,
+          title: body.data[i].title
+        });
+      }
+      callback(undefined, {
+        gifs
+      });
+    }
+    else {
+      callback('Search not found');
+    }
+  });
+};
+
+
+module.exports = {
+  results,
+  randomData,
+  stickerData,
+  searchData
+}

@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-2">
+      <a (click)="showPrevious()"><fa class="icon" [ngClass]="{'start': start}" name="angle-left" size="5x"></fa></a>
+    </div>
+    <div class="col-sm-8">
+      <img [src]="gif.url" alt="gif image">
+      <p>{{gif.title}}</p>
+    </div>
+    <div class="col-sm-2">
+      <a (click)="showNext()"><fa class="icon" [ngClass]="{'end': end}" name="angle-right" size="5x"></fa></a>
+    </div>
+  </div>
+</div>

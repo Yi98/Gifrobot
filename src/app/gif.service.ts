@@ -7,9 +7,10 @@ import { map } from 'rxjs/operators';
 })
 export class GifService {
 
-  private _getTrending = "/api/trending";
-  private _getRandom = "/api/random";
-  private _getSticker = "/api/sticker";
+  private _getTrending = '/api/trending';
+  private _getRandom = '/api/random';
+  private _getSticker = '/api/sticker';
+  private _getSearch = '/api/search';
 
   constructor(private _http: Http) {
 
@@ -29,6 +30,12 @@ export class GifService {
 
   getSticker() {
     return this._http.get(this._getSticker).pipe(
+      map((response: Response) => response.json())
+    );
+  }
+
+  getSearch() {
+    return this._http.get(this._getSearch).pipe(
       map((response: Response) => response.json())
     );
   }
