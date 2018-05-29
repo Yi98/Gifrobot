@@ -26,4 +26,17 @@ gif.randomData((err, data) => {
   }
 });
 
+gif.stickerData((err, data) => {
+  if(err) {
+    console.log(err);
+  }
+  else {
+    console.log(data);
+    router.get('/sticker', (req, res) => {
+      res.send(JSON.stringify(data, undefined, 2));
+    });
+  }
+});
+
+
 module.exports = router;

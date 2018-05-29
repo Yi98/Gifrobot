@@ -20,27 +20,27 @@ export class TrendingComponent implements OnInit, DoCheck {
 
   ngOnInit() {
     this._gifService.getTrending()
-    .subscribe(resGifData => {
-      for(let i=0; i<resGifData.gifs.length; i++) {
-        if(resGifData.gifs[i].title === '') {
-          resGifData.gifs[i].title = "Title not found";
-        }
-        var words = resGifData.gifs[i].title.split(' ');
-        var newTitle = [];
-        for(let j=0; j<words.length; j++) {
-          if(words[j] !== 'GIF') {
-            newTitle.push(words[j]);
+      .subscribe(resGifData => {
+        for(let i=0; i<resGifData.gifs.length; i++) {
+          if(resGifData.gifs[i].title === '') {
+            resGifData.gifs[i].title = "Title not found";
           }
-          else {
-            break;
+          var words = resGifData.gifs[i].title.split(' ');
+          var newTitle = [];
+          for(let j=0; j<words.length; j++) {
+            if(words[j] !== 'GIF') {
+              newTitle.push(words[j]);
+            }
+            else {
+              break;
+            }
           }
+          resGifData.gifs[i].title = newTitle.join(' ').toUpperCase();
         }
-        resGifData.gifs[i].title = newTitle.join(' ').toUpperCase();
-      }
-      this.gifs = resGifData.gifs;
-      this.gif = this.gifs[0];
-      this.limit = resGifData.limit;
-    });
+        this.gifs = resGifData.gifs;
+        this.gif = this.gifs[0];
+        this.limit = resGifData.limit;
+      });
   };
 
   ngDoCheck() {

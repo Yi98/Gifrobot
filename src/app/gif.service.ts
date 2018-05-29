@@ -9,7 +9,11 @@ export class GifService {
 
   private _getTrending = "/api/trending";
   private _getRandom = "/api/random";
-  constructor(private _http: Http) { }
+  private _getSticker = "/api/sticker";
+
+  constructor(private _http: Http) {
+
+  }
 
   getTrending() {  
     return this._http.get(this._getTrending).pipe(
@@ -19,6 +23,12 @@ export class GifService {
 
   getRandom() {
     return this._http.get(this._getRandom).pipe(
+      map((response: Response) => response.json())
+    );
+  }
+
+  getSticker() {
+    return this._http.get(this._getSticker).pipe(
       map((response: Response) => response.json())
     );
   }
