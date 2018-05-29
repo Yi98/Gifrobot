@@ -1,4 +1,4 @@
-import { Component, OnInit, OnChanges, DoCheck } from '@angular/core';
+import { Component, OnInit, DoCheck } from '@angular/core';
 import { GifService } from '../gif.service';
 import { Gif } from 'server/models/Gif';
 
@@ -15,7 +15,6 @@ export class TrendingComponent implements OnInit, DoCheck {
   limit: number;
   start: boolean = false;
   end: boolean = false;
-  url = window.location.href;
 
   constructor(private _gifService: GifService) { }
 
