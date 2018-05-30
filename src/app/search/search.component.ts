@@ -70,6 +70,7 @@ export class SearchComponent implements OnInit, DoCheck {
     if(this.current < this.limit-1) {
       this.current++;
       this.gif = this.gifs[this.current];
+      console.log(this.current);
     }
   }
 }
