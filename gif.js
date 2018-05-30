@@ -6,7 +6,7 @@ var trending = `https://api.giphy.com/v1/gifs/trending?api_key=AH1lxNGJ7pZeEyEJl
 var random = 'https://api.giphy.com/v1/gifs/random?api_key=AH1lxNGJ7pZeEyEJlTQ6EY3RK0EFfPGZ&tag=&rating=R';
 var sticker = `https://api.giphy.com/v1/stickers/trending?api_key=AH1lxNGJ7pZeEyEJlTQ6EY3RK0EFfPGZ&limit=${limit}&rating=R`;
 
-var results = (callback) => {
+var trendingData = (callback) => {
   request(trending, {json: true}, (err, res, body) => {
       if(!err) {
         var gifs = [];
@@ -70,7 +70,7 @@ var stickerData = (callback) => {
 }
 
 module.exports = {
-  results,
+  trendingData,
   randomData,
   stickerData
 }

@@ -3,7 +3,7 @@ const router = express.Router();
 
 const gif = require('../../gif');
 
-gif.results((err, data) => {
+gif.trendingData((err, data) => {
   if(err) {
     console.log(err);
   }
