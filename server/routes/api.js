@@ -39,16 +39,4 @@ gif.stickerData((err, data) => {
   }
 });
 
-gif.searchData((err, data) => {
-  if(err) {
-    console.log(err);
-  }
-  else {
-    console.log(data);1
-    router.get('/search', (req, res) => {
-      res.send(JSON.stringify(data, undefined, 2));
-    });
-  }
-});
-
 module.exports = router;

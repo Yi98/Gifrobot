@@ -72,6 +72,5 @@ var stickerData = (callback) => {
 module.exports = {
   results,
   randomData,
-  stickerData,
-  searchData
+  stickerData
 }
