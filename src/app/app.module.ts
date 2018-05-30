@@ -10,8 +10,6 @@ import { HeaderComponent } from './header/header.component';
 import { RandomComponent } from './random/random.component';
 import { StickerComponent } from './sticker/sticker.component';
 import { TrendingComponent } from './trending/trending.component';
-import { SearchComponent } from './search/search.component';
-
 
 @NgModule({
   declarations: [
@@ -19,8 +17,7 @@ import { SearchComponent } from './search/search.component';
     HeaderComponent,
     TrendingComponent,
     RandomComponent,
-    StickerComponent,
-    SearchComponent
+    StickerComponent
   ],
   imports: [
     BrowserModule,

@@ -1,11 +1,10 @@
 const request = require('request');
 
-var limit = 10;
+var limit = 25;
 
 var trending = `https://api.giphy.com/v1/gifs/trending?api_key=AH1lxNGJ7pZeEyEJlTQ6EY3RK0EFfPGZ&limit=${limit}&rating=G`;
 var random = 'https://api.giphy.com/v1/gifs/random?api_key=AH1lxNGJ7pZeEyEJlTQ6EY3RK0EFfPGZ&tag=&rating=R';
 var sticker = `https://api.giphy.com/v1/stickers/trending?api_key=AH1lxNGJ7pZeEyEJlTQ6EY3RK0EFfPGZ&limit=${limit}&rating=R`;
-var search = `https://api.giphy.com/v1/gifs/search?api_key=AH1lxNGJ7pZeEyEJlTQ6EY3RK0EFfPGZ&q=dog&${limit}&offset=0&rating=G&lang=en`;
 
 var results = (callback) => {
   request(trending, {json: true}, (err, res, body) => {
@@ -69,28 +68,6 @@ var stickerData = (callback) => {
     }
   });
 }
-
-var searchData = (callback) => {
-  request(search, {json: true}, (err, res, body) => {
-    var gifs = [];
-    if(!err) {
-      for(let i=0; i<limit; i++) {
-        gifs.push({
-          url: body.data[i].images.original.url,
-          title: body.data[i].title
-        });
-      }
-      callback(undefined, {
-        gifs,
-        limit
-      });
-    }
-    else {
-      callback('Search not found');
-    }
-  });
-};
-
 
 module.exports = {
   results,

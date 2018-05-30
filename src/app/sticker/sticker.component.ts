@@ -22,7 +22,7 @@ export class StickerComponent implements OnInit, DoCheck {
     this._gifService.getSticker()
       .subscribe(resGifData => {
         for(let i=0; i<resGifData.gifs.length; i++) {
-          if(resGifData.gifs[i].title === '') {
+          if(resGifData.gifs[i].title === ('' || ' ')) {
             resGifData.gifs[i].title = "Title not found";
           }
           var words = resGifData.gifs[i].title.split(' ');

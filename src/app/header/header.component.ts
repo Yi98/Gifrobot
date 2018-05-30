@@ -1,4 +1,5 @@
 import { Component, OnInit, OnChanges } from '@angular/core';
+import { GifService } from '../gif.service';
 
 @Component({
   selector: 'app-header',
@@ -6,8 +7,6 @@ import { Component, OnInit, OnChanges } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-
-  public searchText = "";
 
   constructor() { }
 

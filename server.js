@@ -13,13 +13,10 @@ app.use('/api', api);
 //   res.sendFile(path.join(__dirname, '/dist/gifbot/index.html'));
 // })
 
-var section = app.get('/:section', (req, res) => {
+app.get('/:section', (req, res) => {
   res.sendFile(path.join(__dirname, '/dist/gifbot/index.html'));
-  // return req.params.section;
 });
 
 app.listen((process.env.PORT || port), () => {
   console.log('Server running on ' + port);
 });
-
-// module.exports = section;

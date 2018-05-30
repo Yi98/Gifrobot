@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+
 const gif = require('../../gif');
 
 gif.results((err, data) => {
@@ -43,12 +44,11 @@ gif.searchData((err, data) => {
     console.log(err);
   }
   else {
-    console.log(data);
+    console.log(data);1
     router.get('/search', (req, res) => {
       res.send(JSON.stringify(data, undefined, 2));
     });
   }
 });
-
 
 module.exports = router;

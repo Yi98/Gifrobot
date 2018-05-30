@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, Response } from '@angular/http';
+import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import { map } from 'rxjs/operators';
 
 @Injectable({
@@ -10,7 +10,6 @@ export class GifService {
   private _getTrending = '/api/trending';
   private _getRandom = '/api/random';
   private _getSticker = '/api/sticker';
-  private _getSearch = '/api/search';
 
   constructor(private _http: Http) {
 
@@ -34,9 +33,4 @@ export class GifService {
     );
   }
 
-  getSearch() {
-    return this._http.get(this._getSearch).pipe(
-      map((response: Response) => response.json())
-    );
-  }
 }
